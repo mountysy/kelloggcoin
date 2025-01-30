@@ -27,3 +27,61 @@ blockchain = [
 # Anthony's KelloggCoin balance is 2650
 
 # 👇👇👇 Your code HERE 👇👇👇
+
+index = 0
+user = []
+
+loop do 
+  if index == blockchain.size
+    break
+  end
+
+    for transaction in blockchain
+        from = blockchain[index]["from_user"]
+        to = blockchain[index]["to_user"]
+        user = user.push(from)
+        user = user.push(to)
+    end
+  
+  index = index + 1
+end
+
+uniq_user = user.uniq.compact  #.compact drops the nil value in array
+puts "The users are:"
+puts uniq_user
+puts nil 
+
+
+ben = {"name"=>"ben", "balance"=>0}
+brian = {"name"=>"brian", "balance"=>0}
+evan = {"name"=>"evan", "balance"=>0}
+anthony = {"name"=>"anthony", "balance"=>0}
+
+index = 0
+loop do 
+  if index == blockchain.size
+    break
+  end
+
+    from = blockchain[index]["from_user"]
+    to = blockchain[index]["to_user"]
+    amount = blockchain[index]["amount"]
+    
+    index2 = 0
+    loop do 
+      if index2 == uniq_user.size
+        break
+      end 
+    
+      if uniq_user[index2] = from
+        
+    
+    index2 = index2 + 1
+    end
+
+  index = index + 1
+end
+
+for user in uniq_user
+  puts "#{user}'s Kelloggcoin balance is #{user["balance"]}."
+end
