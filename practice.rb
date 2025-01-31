@@ -51,13 +51,20 @@ puts "The users are:"
 puts uniq_user
 puts nil 
 
-#how to generate the wallet hash automatically based on uniq_user array?
-wallet = {
-"ben" => {"name"=>"ben", "balance"=>0},
-"brian" => {"name"=>"brian", "balance"=>0},
-"evan" => {"name"=>"evan", "balance"=>0},
-"anthony" => {"name"=>"anthony", "balance"=>0}
-}
+#To automatically generate the wallet hash based on uniq_user array
+wallet = uniq_user.each_with_object({}) do |user, hash|
+  hash[user] = {"name" => user, "balance" => 0}
+end
+
+puts wallet
+
+# # the manual way of creating the same hash
+# wallet = {
+# "ben" => {"name"=>"ben", "balance"=>0},
+# "brian" => {"name"=>"brian", "balance"=>0},
+# "evan" => {"name"=>"evan", "balance"=>0},
+# "anthony" => {"name"=>"anthony", "balance"=>0}
+# }
 
 index = 0
 loop do 
